@@ -1,0 +1,10 @@
+module ApplicationHelper
+	def title(title)
+		@page_title = "QManage"
+		if title.nil?
+			@page_title
+		else
+			@page_title += " | " + title
+		end
+	end
+end

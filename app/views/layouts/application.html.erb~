@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> <%= layout :title %> </title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<% if user_signed_in? %>
+				<%= link_to "<i class='icon icon-off icon-white'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class:"pull-right btn btn-inverse btn-large",style:"margin-top:20px;margin-left:20px;" %>
+				<span class="lead pull-right btn disabled" style="margin-top:20px"> Hi <%= current_user.alias %>! </span>
+			<% else %>
+				<%= link_to "<i class='icon icon-plus-sign'></i> Register".html_safe, new_user_registration_path, class:"pull-right btn btn-large", style:"margin-left:20px;margin-top:20px" %>
+				<%= link_to "<i class='icon icon-user'></i> Login".html_safe, new_user_session_path, class:"pull-right btn btn-large",style:"margin-top:20px" %>
+			<% end %>
+			<h1> QManage <small>handle your projects with ease</small> </h1>
+			<div class="clearfix"></div>
+			<hr />
+		</div>
+	</div>
+
+	<% if notice %>
+		<div class="alert alert-success">
+			<%= notice %>
+		</div>
+	<% end %>
+
+	<% if alert %>
+		<div class="alert alert-error">
+			<%= alert %>
+		</div>
+	<% end %>
+	
+	<div class="row-fluid">
+		<div class="span12">
+			<%= yield %>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

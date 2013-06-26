@@ -1,0 +1,21 @@
+
+<%= title("Projects") %>
+
+<div class="row-fluid">
+	<div class="span6">
+		<h3> Projects List </h3>
+		<hr />	
+	</div>
+</div>
+
+<div class="row-fluid">
+	<div class="span6">
+		<div id="project-list">
+			<%= render @projects %>
+
+			<% if @projects.empty? %>
+				No projects yet.
+			<% end %>
+		</div>
+	</div>
+</div>
