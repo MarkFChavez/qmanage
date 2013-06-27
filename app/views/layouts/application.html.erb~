@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title> <%= layout :title %> </title>
+	<title> <%= yield :title %> </title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -13,7 +13,7 @@
 		<div class="span12">
 			<% if user_signed_in? %>
 				<%= link_to "<i class='icon icon-off icon-white'></i> Logout".html_safe, destroy_user_session_path, method: :delete, class:"pull-right btn btn-inverse btn-large",style:"margin-top:20px;margin-left:20px;" %>
-				<span class="lead pull-right btn disabled" style="margin-top:20px"> Hi <%= current_user.alias %>! </span>
+				<%= link_to "Hi #{current_user.alias}", edit_user_registration_path, class:"btn btn-large pull-right", style:"margin-top:20px" %>
 			<% else %>
 				<%= link_to "<i class='icon icon-plus-sign'></i> Register".html_safe, new_user_registration_path, class:"pull-right btn btn-large", style:"margin-left:20px;margin-top:20px" %>
 				<%= link_to "<i class='icon icon-user'></i> Login".html_safe, new_user_session_path, class:"pull-right btn btn-large",style:"margin-top:20px" %>

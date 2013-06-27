@@ -1,2 +1,11 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+
+<%= title(@project.name) %>
+
+<div class="row-fluid">
+	<div class="span12">
+		<h3> <%= @project.name %> <small>updated <%= distance_of_time_in_words(Time.now, @project.updated_at) %> ago, created <%= distance_of_time_in_words(Time.now, @project.created_at) %> ago</small></h3>
+		<blockquote>
+			<%= @project.description %>
+		</blockquote>
+	</div>
+</div>

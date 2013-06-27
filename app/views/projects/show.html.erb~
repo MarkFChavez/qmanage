@@ -1,0 +1,11 @@
+
+<%= title(@project.name) %>
+
+<div class="row-fluid">
+	<div class="span12">
+		<h3> <%= @project.name %> <small>updated <%= distance_of_time_in_words(Time.now, @project.updated_at) %>, created <%= distance_of_time_in_words(Time.now, @project.created_at) %> </small></h3>
+		<blockquote>
+			<%= @project.description %>
+		</blockquote>
+	</div>
+</div>

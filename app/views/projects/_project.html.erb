@@ -1,6 +1,6 @@
 <%= div_for project, class:"project-block" do %>
 	<h3 class="medium">
-		<%= project.name %>
+		<%= link_to project.name, project, style:"color:#000" %>
 		<small> <%= project.description %> </small>
 	</h3>
 <% end %>

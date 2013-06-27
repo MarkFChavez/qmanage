@@ -2,7 +2,16 @@
 <%= title("Projects") %>
 
 <div class="row-fluid">
-	<div class="span6">
+	<div class="span12">
+		<div class="pull-right", style="margin-top:20px">
+			<%= form_for(Project.new, html: {class:"form-inline"}) do |f| %>
+				<%= f.text_field :name, class:"input-medium", placeholder:"Project Name" %>
+				<%= f.text_field :description, class:"input-medium", placeholder:"Short description" %>
+				<%= button_tag type:"submit",class:"btn" do %>
+					<i class='icon icon-plus-sign'></i> Create Project
+				<% end %>
+			<% end %>
+		</div>
 		<h3> Projects List </h3>
 		<hr />	
 	</div>
@@ -12,6 +21,12 @@
 	<div class="span6">
 		<div id="project-list">
 			<%= render @projects %>
+			
+			<%= will_paginate @projects %>
+
+			<% if @projects.empty? %>
+				No projects yet.
+			<% end %>
 		</div>
 	</div>
 </div>

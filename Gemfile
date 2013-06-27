@@ -14,6 +14,7 @@ gem 'pg'
 end
 
 gem 'devise'
+gem 'will_paginate'
 
 
 # Gems used only for assets and not required
